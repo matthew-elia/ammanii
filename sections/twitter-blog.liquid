@@ -1,0 +1,338 @@
+<div class="container">
+  <div class="section clearfix">
+    {% for block in section.blocks %}
+      {% assign num_of_blocks = forloop.length %}
+      {% if block.type == 'blog' %}
+        <div class="{% if num_of_blocks > 1 %}eight columns{% endif %} " {{ block.shopify_attributes }}>
+          {% if block.settings.blog_widget_select != blank %}
+
+            <h4 class="title {% if num_of_blocks < 2 %}sixteen columns{% endif %}">
+              <a href="{{ blogs[block.settings.blog_widget_select].url }}">
+                {{block.settings.title }}
+              </a>
+            </h4>
+
+            {% for article in blogs[block.settings.blog_widget_select].articles limit: block.settings.home_page_articles %}
+              {% if num_of_blocks > 1 %}
+                <div class="clearfix article">
+              {% else %}
+                <div class="
+                {% if num_of_blocks < 2 %}
+                  {% if block.settings.home_page_articles == "1" %}sixteen columns{% elsif block.settings.home_page_articles == "2" %}eight columns{% elsif block.settings.home_page_articles == "3" %}one-third column{% else %}four columns{% endif %}
+                {% endif %}
+                  article clearfix">
+              {% endif %}
+                {% if article.image %}
+                  <a href="{{ article.url }}" title="{{ article.title | escape }}">
+                    <img  {% if block.settings.home_page_articles == "1" and num_of_blocks < 2 %}
+                            src="{{ article.image | img_url: '1180x', scale: 2 }}"
+                          {% else %}
+                            src="{{ article.image | img_url: '600x', scale: 2 }}"
+                          {% endif %}
+                          alt="{{ article.title | escape }}"
+                          class="lazyload transition-in"
+                          data-sizes="auto"
+                          data-src="{{ article.image | img_url: '600x' }}"
+                          data-srcset=" {{ article.image | img_url: '600x' }} 600w,
+                                        {{ article.image | img_url: '1024x1024' }} 1024w"
+                           />
+                  </a>
+                {% endif %}
+
+                {% if block.settings.blog_tags %}
+                  <div class="blog_meta tags">
+                    {% for tag in article.tags %}
+                      <span><a href="{{ shop.url}}/blogs/{{ blogs[block.settings.blog_widget_select].handle }}/tagged/{{ tag | handleize }}" title="{{ blogs[block.settings.blog_widget_select].title | escape }} {{ 'blogs.general.tagged' | t }} {{ tag | escape }}">{{ tag }}</a></span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <h5 class="sub_title">
+                  <a href="{{ article.url }}" title="{{ article.title | escape }}">{{ article.title }}</a>
+                </h5>
+                <p class="blog_meta">
+                  {% if block.settings.blog_author %}
+                    <span>{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+                  {% endif %}
+
+                  {% if block.settings.blog_date %}
+                    <span>{{ article.published_at | date: format: "month_day_year" }}</span>
+                  {% endif %}
+
+                  {% if block.settings.blog_comment_count %}
+                    {% if settings.disqus_enabled %}
+                      <span>
+                        <a href="{{ article.url }}#disqus_thread" data-disqus-identifier="{{ article.id }}" class="disqus-comment-count">{{ 'blogs.counts.comments_with_count' | t: count: 0 }}</a>
+                      </span>
+                    {% elsif article.comments_enabled? and article.comments_count > 0 %}
+                      <span>
+                        <a href="{{ article.url }}#comments">{{ 'blogs.counts.comments_with_count' | t: count: article.comments_count }}</a>
+                      </span>
+                    {% endif %}
+                  {% endif %}
+                </p>
+
+                {% if article.excerpt != blank %}
+                  <div class="excerpt">{{ article.excerpt }}</div>
+                {% endif %}
+                {% if block.settings.read_more_link %}
+                  <p>
+                    <a href="{{ article.url }}" title="{{ article.title | escape }}">{{ 'blogs.general.continue_reading_html' | t }}</a>
+                  </p>
+                {% endif %}
+              </div>
+            {% endfor %}
+
+        {% else %}
+
+          <h4 class="title {% if num_of_blocks < 2 %}sixteen columns{% endif %}">
+            <a href="#">
+              {{block.settings.title }}
+            </a>
+          </h4>
+          {% for i in (1..block.settings.home_page_articles) %}
+            <div class="
+              {% if num_of_blocks < 2 %}
+                {% if block.settings.home_page_articles == "1" %}sixteen columns{% elsif block.settings.home_page_articles == "2" %}eight columns{% elsif block.settings.home_page_articles == "3" %}one-third column{% else %}four columns{% endif %}
+              {% endif %}
+                article clearfix">
+
+              <a href="#">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg article_image' }}
+              </a>
+
+              <h5 class="sub_title">
+                <a href="#" title="{{ 'homepage.onboarding.blogpost_title' | escape }}">{{ 'homepage.onboarding.blogpost_title' | t }}</a>
+              </h5>
+              <p class="blog_meta">
+                {% if block.settings.blog_author %}
+                  <span>{{ 'homepage.onboarding.blog_author' | t: author: article.author }}</span>
+                {% endif %}
+
+                {% if block.settings.blog_date %}
+                  <span>{{ 'now' | date: format: "month_day_year" }}</span>
+                {% endif %}
+
+                {% if block.settings.blog_comment_count %}
+                  {% if settings.disqus_enabled %}
+                    <span>
+                      <a href="{{ article.url }}#disqus_thread" data-disqus-identifier="{{ article.id }}" class="disqus-comment-count">{{ 'blogs.counts.comments_with_count' | t: count: 0 }}</a>
+                    </span>
+                  {% elsif article.comments_enabled? and article.comments_count > 0 %}
+                    <span>
+                      <a href="{{ article.url }}#comments">{{ 'blogs.counts.comments_with_count' | t: count: article.comments_count }}</a>
+                    </span>
+                  {% endif %}
+                {% endif %}
+              </p>
+
+              {% if article.excerpt != blank %}
+                {{ 'homepage.onboarding.blog_excerpt' | t }}
+              {% endif %}
+              {% if block.settings.read_more_link %}
+                <p>
+                  <a href="{{ article.url }}" title="{{ article.title | escape }}">{{ 'blogs.general.continue_reading_html' | t }} <span class="icon-right-arrow"></span></a>
+                </p>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+        {% endif%}
+        </div>
+      {% endif %}
+
+      {% if block.type == 'twitter' %}
+        <div class="{% if forloop.length > 1 %}eight{% else %}sixteen{% endif %} columns twitter-feed-wrap" {{ block.shopify_attributes }}>
+          <h4 class="title"><a href="https://twitter.com/{{ block.settings.twitter_username | replace: "@", "" | strip }}" target="_blank">{{block.settings.title }}</a></h4>
+
+          <a class="twitter-timeline" data-theme="{{ block.settings.twitter_theme }}" href="https://twitter.com/{% if block.settings.twitter_username != blank %}{{ block.settings.twitter_username | replace: "@", "" | strip }}{% else %}outofthesandbox{% endif %}" data-widget-id="319998048782647298" data-tweet-limit="{{ block.settings.tweet_count }}" data-screen-name="{% if block.settings.twitter_username != blank %}{{ block.settings.twitter_username | replace: "@", "" | strip }}{% else %}outofthesandbox{% endif %}" data-chrome="noheader nofooter noborders transparent" data-link-color="{{ settings.link_color }}" data-heading-style="color:{{ settings.link_color }};font-size:{{ settings.regular_font_size }}px;font-family: {{ settings.regular_font | replace: 'Google_', '' | replace: '+', ' ' | replace: '"', '' }}"></a>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  </div>
+</div>
+
+
+{% schema %}
+
+{
+  "name": "Blog and Twitter feed",
+  "class": "twitter-feed-section featured-blog-section",
+  "max_blocks": 2,
+  "settings": [
+
+  ],
+  "blocks": [
+      {
+        "type": "blog",
+        "name": "Featured blog",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Blog posts"
+          },
+          {
+            "type": "blog",
+            "id": "blog_widget_select",
+            "label": "Blog"
+          },
+          {
+            "type": "select",
+            "id": "home_page_articles",
+            "label": "Posts",
+            "default": "2",
+            "options": [
+              {
+                "value": "1",
+                "label": "1"
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              },
+              {
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "label": "5"
+              },
+              {
+                "value": "6",
+                "label": "6"
+              },
+              {
+                "value": "7",
+                "label": "7"
+              },
+              {
+                "value": "8",
+                "label": "8"
+              }
+            ]
+          },
+          {
+            "type": "checkbox",
+            "id": "blog_tags",
+            "label": "Show blog post tags"
+          },
+          {
+            "type": "checkbox",
+            "id": "blog_author",
+            "label": "Show author",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "blog_date",
+            "label": "Show date",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "blog_comment_count",
+            "label": "Show comment count",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "read_more_link",
+            "label": "Show continue reading link for blog post excerpts",
+            "default": true
+          }
+        ]
+      },
+    {
+      "type": "twitter",
+      "name": "Twitter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "twitter_username",
+          "label": "Twitter username"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Twitter title",
+          "default": "Twitter feed"
+        },
+        {
+          "type": "radio",
+          "id": "twitter_theme",
+          "label": "Twitter theme",
+          "default": "light",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "dark",
+              "label": "Dark"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "tweet_count",
+          "label": "Number of tweets",
+          "default": "2",
+          "options": [
+              {
+                "value": "1",
+                "label": "1"
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              },
+              {
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "label": "5"
+              },
+              {
+                "value": "6",
+                "label": "6"
+              }
+            ]
+          }
+        ]
+      }
+  ],
+  "presets": [{
+    "name": "Blog and Twitter feed",
+    "category": "Social media",
+    "settings": {
+    },
+    "blocks": [
+      {
+        "type": "blog"
+      },
+      {
+        "type": "twitter"
+      }
+    ]
+  }]
+}
+
+{% endschema %}
+

@@ -1,0 +1,119 @@
+<div class="testimonial-container" data-section-id="{{ section.id }}">
+   {% if section.settings.title != blank %}
+      <h2 class="title center">{{ section.settings.title}}</h2>
+  {% endif %}
+  {% if section.blocks.size > 0 %}
+    <div class="testimonial-bar center {% if section.settings.transparency != blank %}set-transparency{% endif %}">
+      <div id="testimonial_slider" class="flexslider testimonial_slider">
+        <ul class="slides">
+          {% for block in section.blocks %}
+            <li class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
+              <div class="testimonial-block">
+
+                {{block.settings.testimonial}}
+
+                {% if block.settings.name != blank %}
+                <p>
+                  <span class="name">{{ block.settings.name }}</span><br>
+
+                  {% if block.settings.site_link != blank %}
+                    <a href="{{block.settings.site_link}}">
+                  {% endif %}
+
+                  {% if block.settings.site != blank %}
+                    {{block.settings.site}}
+                  {% endif %}
+
+                  {% if block.settings.site_link != blank %}
+                    </a>
+                  {% endif %}
+                </p>
+                {% else %}
+                <p>
+                {% if block.settings.site_link != blank %}
+                    <a href="{{block.settings.site_link}}">
+                  {% endif %}
+
+                  {% if block.settings.site != blank %}
+                    {{block.settings.site}}
+                  {% endif %}
+
+                  {% if block.settings.site_link != blank %}
+                    </a>
+                  {% endif %}
+                  </p>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "class": "testimonial-section",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Testimonials"
+      },
+      {
+        "type": "checkbox",
+        "id": "transparency",
+        "label": "Enable transparency"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "testimonial",
+            "label": "Testimonial",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quam enim, fringilla ut purus ut, pretium ullamcorper sem. In sit amet vestibulum tellus. Aenean gravida dolor eget mi bibendum semper. </p>"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Customer name",
+            "info": "Optional",
+            "default": "John Doe"
+          },
+          {
+            "type": "text",
+            "id": "site",
+            "label": "Customer link",
+            "info": "Optional",
+            "default": "www.example.com"
+          },
+          {
+            "type": "url",
+            "id": "site_link",
+            "label": "Customer link URL",
+            "info": "Optional"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "quote"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

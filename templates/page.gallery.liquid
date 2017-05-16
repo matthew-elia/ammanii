@@ -1,0 +1,24 @@
+<div class="sixteen columns clearfix collection_nav">
+  <h1 class="collection_title">
+    {{ page.title }}
+  </h1>
+</div>
+
+<div class="sixteen columns page">
+  {% if page.content contains "<!-- split -->" %}
+    {{ page.content | split: "<!-- split -->" | last }}
+  {% endif %}
+  
+  {% assign imgs = page.content | split: 'src="' %}
+  {% for img in imgs %}
+    {% assign src = img | split: '"' | first | replace: '//cdn', 'http://cdn' | replace: 'http:http://', 'http://' | remove: 'https:' | remove: 'http:' %}
+  {% unless forloop.index == 1 %}
+    <div class="one-third column {% cycle "alpha","","omega" %}">
+      <a href="{{ src }}" title="{{ src.alt | escape }}" class="lightbox" rel="gallery" data-fancybox-group="{{ page.handle }}">
+        <img src="{{ src }}"/>
+      </a>
+    </div>
+    {% cycle clear_row: "","",'<br class="clear" />' %}
+    {% endunless %}
+  {% endfor %}
+</div>

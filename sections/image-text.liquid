@@ -1,0 +1,150 @@
+<div class="featured_collections
+            clearfix grid-layout--{{section.settings.grid_layout}} {% if section.settings.grid_layout == 'standard' %} container {% endif %}">
+  {% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+      <section class="featured-link--section featured-link--image section-{{ forloop.index }} {% if section.settings.grid_layout == 'standard' %}sixteen columns{% endif %}" {{ block.shopify_attributes }}>
+        <div class="featured-link--half featured-link--image">
+          <div class="featured-link--wrap">
+            <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title | escape }}">
+              {% if block.settings.image %}
+                <img  sizes="(min-width: 36em) 33.3vw, 100vw"
+                      src="{{ block.settings.image | img_url: '1024x1024' }}"
+                    {% if section.settings.featured_links_per_row == 1 %}
+                      srcset=" {{ block.settings.image | img_url: '1160x' }} 1160w,
+                                {{ block.settings.image | img_url: '728x' }} 728w,
+                                {{ block.settings.image | img_url: '580x' }} 580w,
+                                {{ block.settings.image | img_url: '364x' }} 364w"
+                    {% elsif section.settings.featured_links_per_row == 2 %}
+                      srcset=" {{ block.settings.image | img_url: '760x' }} 760w,
+                                {{ block.settings.image | img_url: '470x' }} 470w,
+                                {{ block.settings.image | img_url: '380x' }} 380w,
+                                {{ block.settings.image | img_url: '235x' }} 235w"
+                    {% endif %}
+                    class="lazyload transition-in"
+                    alt="{{ block.settings.title | escape }}" />
+              {% else %}
+                {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+              {% endif %}
+            </a>
+          </div>
+        </div>
+        <div class="featured-link--half">
+          <div class="info text-align--{{section.settings.frontpage_text_align}}">
+            <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="collection_title">
+              {{ block.settings.title | escape }}
+            </a>
+            {% if block.settings.text != blank %}
+              <div class="description">{{ block.settings.text }}</div>
+            {% endif %}
+            {% if block.settings.button_label != blank %}
+              <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="action_button">
+                {{ block.settings.button_label | escape }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </section>
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "class": "image-with-text-section",
+  "max_blocks": 16,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "For best results, upload images that are 1000px in width and 400px in height. Try to keep your images the same size for consistency."
+    },
+    {
+      "type": "select",
+      "id": "grid_layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "frontpage_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image with text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Promotion description appears here.</p>"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "View all"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Image with text",
+    "category": "Image",
+    "settings": {
+      "grid_layout": "standard",
+      "frontpage_text_align": "left"
+    },
+    "blocks": [
+      {
+        "type": "image"
+      },
+      {
+        "type": "image"
+      }
+    ]
+  }]
+}
+{% endschema %}
