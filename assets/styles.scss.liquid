@@ -2275,6 +2275,10 @@ div#gift-card-outer-container { background-color: #eee; }
     display: inline;
   }
 
+  .instagram-feed-section {
+    background-color: #f1f1f1;
+  }
+
   .instagram-feed-wrap {
     .column {
       margin-bottom: 10px;
@@ -3733,8 +3737,13 @@ html[xmlns] .slides {display: block;}
 .no-js .slides > li:first-child {display: block;}
 
 .flexslider .slides img {
-  display: block;
-  max-width: 100%; height: auto; margin: 0 auto;
+  position: absolute;
+  top: 65px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
 }
 .homepage_slider .slides > li:first-of-type {display: block }
 .homepage_slider .slides img, .article .slides img {

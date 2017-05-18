@@ -248,6 +248,25 @@ var slideshow = {
 }
 
 /*============================================================================
+  Home page - headline, featured content sections
+==============================================================================*/
+
+var homepageContentSection = {
+  init: function () {
+    
+    var contentSectionSecondary = $('.index-sections > .featured-content-section').eq(0).children();
+    contentSectionSecondary.css('background', 'white');
+    $('.homepage_content h2').css('background-color', 'white');
+    // contentSectionSecondary.prepend('<br>');
+    
+    // var featuredCollectionSection = $('.index-sections > .featured-collection-section').eq(0);
+    // featuredCollectionSection.css('background', '#f1f1f1');
+
+  }
+}
+
+
+/*============================================================================
   Home page - video
 ==============================================================================*/
 
@@ -564,6 +583,11 @@ var collection = {
 
     {% if settings.collection_swatches %}
       if ($(window).width() >= 768) {
+        if($('.thumbnail').hasClass('beta')) {
+          console.log('fuckyou');
+          $('.beta').removeClass('eleven');
+          $('.beta').addClass('three');
+        }
         $('.thumbnail').hover(function() {
           $('.swatch span', $(this)).each(function() {
             if($(this).data("image").indexOf("no-image") == -1) {
@@ -840,6 +864,7 @@ $(function() {
   header.init();
   banner.init();
   slideshow.init();
+  homepageContentSection.init();
   testimonials.init();
   product.init();
   collection.init();

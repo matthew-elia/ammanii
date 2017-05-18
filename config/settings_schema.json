@@ -168,8 +168,6 @@
         "label": "Sub-footer links hover",
         "default": "#AE3333"
       },
-
-
       {
         "type": "color",
         "id": "footer_link_color",
@@ -182,7 +180,6 @@
         "label": "Footer links hover",
         "default": "#AE3333"
       },
-
       {
         "type": "header",
         "content": "Buttons"
@@ -273,7 +270,6 @@
         "label": "New, pre-order, and coming soon banners",
         "default": "#AE3333"
       },
-
       {
         "type": "header",
         "content": "Backgrounds"
@@ -419,7 +415,7 @@
         "type": "image_picker",
         "id": "newsletter_bg",
         "label": "Popup background image",
-        "info": "600 x 400px recommended"        
+        "info": "600 x 400px recommended"
       },
       {
         "type": "checkbox",
@@ -459,7 +455,6 @@
         "type": "header",
         "content": "Password page"
       },
-
       {
         "type": "image_picker",
         "id": "custom_logo",
@@ -504,7 +499,7 @@
         "id": "logo_font",
         "label": "Font",
         "options": [
-           {
+          {
             "value": "Arial, 'Helvetica Neue', Helvetica, sans-serif",
             "label": "Arial",
             "group": "Sans-serif"
@@ -549,7 +544,7 @@
             "label": "Advent Pro",
             "group": "Sans-serif | Google Fonts"
           },
-           {
+          {
             "value": "Google_Asap",
             "label": "Asap",
             "group": "Sans-serif | Google Fonts"
@@ -664,7 +659,6 @@
             "label": "Unica One",
             "group": "Sans-serif | Google Fonts"
           },
-
           {
             "value": "'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif",
             "label": "Big Caslon",
@@ -780,7 +774,6 @@
             "label": "Vollkorn",
             "group": "Serif | Google Fonts"
           },
-
           {
             "value": "Google_Amatic+SC",
             "label": "Amatic SC",
@@ -826,7 +819,7 @@
             "label": "Parisienne",
             "group": "Handwriting | Google Fonts"
           },
-         {
+          {
             "value": "Google_Patrick+Hand+SC",
             "label": "Patrick Hand SC",
             "group": "Handwriting | Google Fonts"
@@ -846,7 +839,6 @@
             "label": "Sue Ellen Francisco",
             "group": "Handwriting | Google Fonts"
           },
-
           {
             "value": "'Courier New', Courier, monospace",
             "label": "Courier New",
@@ -963,7 +955,7 @@
         "id": "headline_font",
         "label": "Font",
         "options": [
-           {
+          {
             "value": "Arial, 'Helvetica Neue', Helvetica, sans-serif",
             "label": "Arial",
             "group": "Sans-serif"
@@ -1008,7 +1000,7 @@
             "label": "Advent Pro",
             "group": "Sans-serif | Google Fonts"
           },
-           {
+          {
             "value": "Google_Asap",
             "label": "Asap",
             "group": "Sans-serif | Google Fonts"
@@ -1123,7 +1115,6 @@
             "label": "Unica One",
             "group": "Sans-serif | Google Fonts"
           },
-
           {
             "value": "'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif",
             "label": "Big Caslon",
@@ -1239,7 +1230,6 @@
             "label": "Vollkorn",
             "group": "Serif | Google Fonts"
           },
-
           {
             "value": "Google_Amatic+SC",
             "label": "Amatic SC",
@@ -1285,7 +1275,7 @@
             "label": "Parisienne",
             "group": "Handwriting | Google Fonts"
           },
-         {
+          {
             "value": "Google_Patrick+Hand+SC",
             "label": "Patrick Hand SC",
             "group": "Handwriting | Google Fonts"
@@ -1305,7 +1295,6 @@
             "label": "Sue Ellen Francisco",
             "group": "Handwriting | Google Fonts"
           },
-
           {
             "value": "'Courier New', Courier, monospace",
             "label": "Courier New",
@@ -1468,7 +1457,6 @@
         ],
         "default": "double"
       },
-
       {
         "type": "header",
         "content": "Main menu"
@@ -1478,7 +1466,7 @@
         "id": "nav_font",
         "label": "Font",
         "options": [
-           {
+          {
             "value": "Arial, 'Helvetica Neue', Helvetica, sans-serif",
             "label": "Arial",
             "group": "Sans-serif"
@@ -1523,7 +1511,7 @@
             "label": "Advent Pro",
             "group": "Sans-serif | Google Fonts"
           },
-           {
+          {
             "value": "Google_Asap",
             "label": "Asap",
             "group": "Sans-serif | Google Fonts"
@@ -1638,7 +1626,6 @@
             "label": "Unica One",
             "group": "Sans-serif | Google Fonts"
           },
-
           {
             "value": "'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif",
             "label": "Big Caslon",
@@ -1754,7 +1741,6 @@
             "label": "Vollkorn",
             "group": "Serif | Google Fonts"
           },
-
           {
             "value": "Google_Amatic+SC",
             "label": "Amatic SC",
@@ -1800,7 +1786,7 @@
             "label": "Parisienne",
             "group": "Handwriting | Google Fonts"
           },
-         {
+          {
             "value": "Google_Patrick+Hand+SC",
             "label": "Patrick Hand SC",
             "group": "Handwriting | Google Fonts"
@@ -1820,7 +1806,6 @@
             "label": "Sue Ellen Francisco",
             "group": "Handwriting | Google Fonts"
           },
-
           {
             "value": "'Courier New', Courier, monospace",
             "label": "Courier New",
@@ -1877,7 +1862,7 @@
         "type": "select",
         "id": "nav_font_size",
         "label": "Base size",
-          "options": [
+        "options": [
           {
             "value": "12",
             "label": "12px"
@@ -1920,7 +1905,7 @@
         "type": "select",
         "id": "nav_letter_spacing",
         "label": "Letter spacing",
-         "options": [
+        "options": [
           {
             "value": "0",
             "label": "0px"
@@ -2011,7 +1996,7 @@
             "label": "Advent Pro",
             "group": "Sans-serif | Google Fonts"
           },
-           {
+          {
             "value": "Google_Asap",
             "label": "Asap",
             "group": "Sans-serif | Google Fonts"
@@ -2126,7 +2111,6 @@
             "label": "Unica One",
             "group": "Sans-serif | Google Fonts"
           },
-
           {
             "value": "'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif",
             "label": "Big Caslon",
@@ -2242,7 +2226,6 @@
             "label": "Vollkorn",
             "group": "Serif | Google Fonts"
           },
-
           {
             "value": "Google_Amatic+SC",
             "label": "Amatic SC",
@@ -2288,7 +2271,7 @@
             "label": "Parisienne",
             "group": "Handwriting | Google Fonts"
           },
-         {
+          {
             "value": "Google_Patrick+Hand+SC",
             "label": "Patrick Hand SC",
             "group": "Handwriting | Google Fonts"
@@ -2308,7 +2291,6 @@
             "label": "Sue Ellen Francisco",
             "group": "Handwriting | Google Fonts"
           },
-
           {
             "value": "'Courier New', Courier, monospace",
             "label": "Courier New",
@@ -2408,7 +2390,7 @@
         "type": "select",
         "id": "footer_font_size",
         "label": "Footer font size",
-            "options": [
+        "options": [
           {
             "value": "12",
             "label": "12px"
@@ -2447,12 +2429,10 @@
           }
         ]
       },
-
       {
         "type": "header",
         "content": "Buttons"
       },
-
       {
         "type": "select",
         "id": "button_weight",
@@ -2497,7 +2477,7 @@
         "type": "select",
         "id": "button_font_size",
         "label": "Base size",
-            "options": [
+        "options": [
           {
             "value": "12",
             "label": "12px"
@@ -2536,12 +2516,10 @@
           }
         ]
       },
-
-   {
+      {
         "type": "header",
         "content": "Banner headings"
       },
-
       {
         "type": "select",
         "id": "slideshow_headline_size",
@@ -2671,7 +2649,7 @@
             "label": "Advent Pro",
             "group": "Sans-serif | Google Fonts"
           },
-           {
+          {
             "value": "Google_Asap",
             "label": "Asap",
             "group": "Sans-serif | Google Fonts"
@@ -2786,7 +2764,6 @@
             "label": "Unica One",
             "group": "Sans-serif | Google Fonts"
           },
-
           {
             "value": "'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif",
             "label": "Big Caslon",
@@ -2902,7 +2879,6 @@
             "label": "Vollkorn",
             "group": "Serif | Google Fonts"
           },
-
           {
             "value": "Google_Amatic+SC",
             "label": "Amatic SC",
@@ -2948,7 +2924,7 @@
             "label": "Parisienne",
             "group": "Handwriting | Google Fonts"
           },
-         {
+          {
             "value": "Google_Patrick+Hand+SC",
             "label": "Patrick Hand SC",
             "group": "Handwriting | Google Fonts"
@@ -2968,7 +2944,6 @@
             "label": "Sue Ellen Francisco",
             "group": "Handwriting | Google Fonts"
           },
-
           {
             "value": "'Courier New', Courier, monospace",
             "label": "Courier New",
@@ -3110,7 +3085,6 @@
         "label": "Text shadow",
         "default": true
       }
-
     ]
   },
   {
@@ -3322,7 +3296,7 @@
             "label": "Below 'add to cart'"
           }
         ]
-      },        
+      },
       {
         "type": "select",
         "id": "description_words",
@@ -3369,7 +3343,7 @@
       },
       {
         "type": "paragraph",
-        "content": "Before enabling reviews you will need to install the free [Shopify Product Reviews](https://apps.shopify.com/product-reviews) app."
+        "content": "Before enabling reviews you will need to install the free [Shopify Product Reviews](https:\/\/apps.shopify.com\/product-reviews) app."
       },
       {
         "type": "checkbox",
@@ -3516,7 +3490,7 @@
         "id": "supported_currencies",
         "label": "Supported currencies",
         "default": "USD CAD INR GBP AUD EUR JPY",
-        "info": "Use the country's ISO [currency code](http://www.xe.com/iso4217.php). Separate your currency codes with a space."
+        "info": "Use the country's ISO [currency code](http:\/\/www.xe.com\/iso4217.php). Separate your currency codes with a space."
       },
       {
         "type": "text",
@@ -3526,7 +3500,6 @@
       }
     ]
   },
-
   {
     "name": "Search",
     "settings": [
@@ -3691,67 +3664,67 @@
         "type": "text",
         "id": "twitter_link",
         "label": "Twitter link",
-        "info": "https://twitter.com/shopify"
+        "info": "https:\/\/twitter.com\/shopify"
       },
       {
         "type": "text",
         "id": "facebook_link",
         "label": "Facebook link",
-        "info": "https://facebook.com/shopify"
+        "info": "https:\/\/facebook.com\/shopify"
       },
       {
         "type": "text",
         "id": "google_link",
         "label": "Google+ link",
-        "info": "https://plus.google.com/+shopify"
+        "info": "https:\/\/plus.google.com\/+shopify"
       },
       {
         "type": "text",
         "id": "youtube_link",
         "label": "YouTube link",
-        "info": "https://youtube.com/user/shopify"
+        "info": "https:\/\/youtube.com\/user\/shopify"
       },
       {
         "type": "text",
         "id": "vimeo_link",
         "label": "Vimeo link",
-        "info": "https://vimeo.com/shopify"
+        "info": "https:\/\/vimeo.com\/shopify"
       },
       {
         "type": "text",
         "id": "pinterest_link",
         "label": "Pinterest link",
-        "info": "https://pinterest.com/shopify"
+        "info": "https:\/\/pinterest.com\/shopify"
       },
       {
         "type": "text",
         "id": "tumblr_link",
         "label": "Tumblr link",
-        "info": "https://shopify.tumblr.com/"
+        "info": "https:\/\/shopify.tumblr.com\/"
       },
       {
         "type": "text",
         "id": "instagram_link",
         "label": "Instagram link",
-        "info": "https://instagram.com/shopify"
+        "info": "https:\/\/instagram.com\/shopify"
       },
       {
         "type": "text",
         "id": "snapchat_link",
         "label": "Snapchat link",
-        "info": "https://www.snapchat.com/add/shopify"
+        "info": "https:\/\/www.snapchat.com\/add\/shopify"
       },
       {
         "type": "text",
         "id": "houzz_link",
         "label": "Houzz link",
-        "info": "https://www.houzz.com/shopify"
+        "info": "https:\/\/www.houzz.com\/shopify"
       },
       {
         "type": "text",
         "id": "linkedin_link",
         "label": "LinkedIn link",
-        "info": "https://linkedin.com/company/shopify"
+        "info": "https:\/\/linkedin.com\/company\/shopify"
       },
       {
         "type": "text",

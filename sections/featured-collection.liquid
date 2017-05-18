@@ -18,12 +18,18 @@
       <div class="sixteen columns">
     {% endif %}
       {% if section.settings.title != blank %}
-        <h2 class="title">
+        <h2 class="title" style="text-align:center;">
           {{ section.settings.title | escape }}
         </h2>
+        
+        <br>
+        <hr style="width:80px;text-align:center;border-color:black;margin:auto;">
+        <br>
+        <br>
+        
         {% if collections[section.settings.frontpage_collection] != blank %}
           <div class="section clearfix">
-            {{ collections[section.settings.frontpage_collection].description }}
+            {% comment %}{{ collections[section.settings.frontpage_collection].description }}{% endcomment %}
           </div>
         {% endif %}
       {% endif %}
